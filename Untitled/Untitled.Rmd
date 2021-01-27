@@ -1,0 +1,264 @@
+---
+title: shit
+subtitle: more shit
+full: "Enabling Patient Prioritization in the Montgomery County Emergency Room Overdose Notification (MC-ERON) System"
+short: "PHDMC Internal Employee Satisfaction Survey Report Results"
+abstract:     >
+          This is where you put the abstract. Note chevron symbol above, it tells Pandoc 
+          that this YAML entry spans multiple lines
+keywords:     "awesome, ascend, amazing, other a-words"
+date:       "`r format(Sys.Date(), '%B %Y')`"
+cite_style: ""
+cite_shape: ""
+num_cite:   yes
+geometry: margin = 1in
+output: 
+  Ascend::whitepaper:
+    toc: yes
+    logo: images/ascend_logo
+    highlight: tango
+    includes:
+      in_header:    scripts/tex/in_header.tex
+      before_body:  scripts/tex/before_body.tex
+      after_body:   scripts/tex/after_body.tex
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitcitations)
+library(RefManageR)
+library(xtable)
+source('scripts/R/setup.R')
+
+BIB <- ReadBib('references/my_bib.bib')
+knitcitations <- BIB[key = 'boettiger2017knitcitations']
+refmanager    <- BIB[title = 'RefManageR']
+pressure      <- BIB[key = 'randolph2016the']
+cite_options(citation_format = 'pandoc')
+
+library(reticulate)
+```
+
+# Introduction
+
+## Welcome to the Ascend whitepaper template!
+
+\MakeUppercase{fIrSt ThInGs FiRsT} - \underline{this IS the whitepaper}.  As you start writing your document, you will replace this example content with your own.  This document is meant to serve as a primer on how to use the `whitepaper` template provided by the `Ascend` package. 
+
+## What is Markdown and Why Should You Use it?
+
+[Markdown](http://daringfireball.net/projects/markdown/) is intended to be as easy-to-read and easy-to-write as is feasible. Unlike \LaTeX, there is no single markdown standard rather there are many distinct "flavors".  This template uses Rmarkdown which is based on Pandoc-flavored markdown. 
+
+For a quick cheatsheet on how to use Rmarkdown, visit [this site](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  For more detailed instructions on using rmarkdown to create pdf documents visit [this site](http://rmarkdown.rstudio.com/pdf_document_format.html).
+
+Throughout this document, you will find several references and/or resources showing how to include
+
+- ___text___
+- citations & *bibliographies*
+- plots
+- images
+- tables
+- quotes
+- acronyms
+- glossary terms
+- symbols
+- equations
+- code chunks
+
+## Basic set-up (This is a 2^nd^ level heading - sections)
+
+
+Before trying to knit the document we need to ensure that you have all of the necessary tools installed. 
+
+### Installing Tex/LaTeX (This is a 3^rd^ level heading - subsections)
+
+The first required tool is a `TeX` distribution.  
+
+- For Windows, install [MiKTeX](https://miktex.org/howto/install-miktex)
+- For Mac, install [MacTeX](https://www.tug.org/mactex/)
+- For Linux, isntall [TeX Live](https://tug.org/texlive/)
+
+### Installing Perl
+
+The next required tool is Perl - particularly if your running Windows.  You may already have Perl installed, in which case reinstalling is not necessary. To check if Perl has already been installed, run the following code in the R console. 
+
+```{r, eval=FALSE, echo=TRUE}
+Sys.which('perl')
+```
+
+If this code returns a path to perl.exe (i.e. `'C:\\STRAWB~1\\perl\\bin\\perl.exe'`) - you're good to go. If this returns nothing (i.e. `""`) it is likely that Perl is not installed.  Before installing however let's check your `C:` drive (or wherever your applications are stored).  Look for a directory named `Perl`, `ActivePerl`, or `Strawberry`.  If you see one of these perl is installed but not correctly configured (we'll get to that).  If you don't see any of these directories go [here](http://strawberryperl.com/) to install Strawberry Perl for Windows or [here](https://www.activestate.com/activeperl) to install ActiveState Perl for Mac or Linux.
+
+### Installing Pandoc
+
+Finally, we need to install Pandoc.  Once again check to see if Pandoc has already been installed by running the following code in the R console.
+
+```{r, eval=FALSE}
+Sys.which('pandoc')
+```
+
+If this returns a path to pandoc.exe - you're good.  If not, go [here](http://www.pandoc.org/installing.html) to install Pandoc for your OS.
+
+## Let's test it out
+
+OK, so now let's try to knit this document.  You may get one or more errors stating that a required \LaTeX package is not installed. To fix this, just open your package manager and install the package(s) listed.  __NOTE: You may need to use the admin version of the package manager (I've found this to be true for MiKTeX on Windows).__  To see which latex packages are called by this template run the code below to open the template file.
+
+```{r, eval=FALSE, echo=TRUE}
+library(Ascend)
+browseURL(.afit_thesis_template) 
+```
+
+If you get an error referencing an application called `latexmk.exe`, read the error message and follow the path to find `latexmk.exe` and delete it.  Try knitting the document again. 
+
+## Tables
+
+Assuming you were able to get the document to knit
+
+There are a number of R packages that make it really easy to turn a matrix or a data.frame into a \LaTeX-style table.  Examples of such packages are
+
+- The kable function in the knitr package can create simple tables
+- The pandoc.table function in the pander package can create more complex table, but can be difficult to work with for some situations.
+- The Hmisc package is a do-everything package that contains several functions for creating tables.
+- The stargazer and tables packages provide functions for creating tables of regression results and summary statistics.
+- The xtable package is widely considered as the go-to package for creating \LaTeX style tables.
+
+## Plots
+
+Building plots in R is easy using either the graphics, ggplot2 or lattice packages. Figure \@ref(fig:basic) is an example using the data set **mtcars**. Notice that we used `\@ref(fig:basic)` to reference the plot in the text, where `fig` to denotes that we are referencing a figure and `basic` refers to the name of the chunk in which the plot was created.  NOTE: to reference a plot you must include a caption using the `fig.cap` chunk argument.   
+
+```{r basic, echo=FALSE, fig.cap='A basic plot'}
+plot(mtcars$mpg,
+     mtcars$hp,
+     main = "Scatterplot",
+     xlab = "Miles per Gallon", 
+     ylab = "Horse Power", 
+     col  = "blue")
+```
+
+For a detailed and in depth descriptions on how to make plots, and the different kinds that R is capable of creating, you can visit [this site](http://www.statmethods.net/graphs/scatterplot.html).
+
+The ggplot2 package has the ability to offer many more plotting options than the `plot()` command. You can learn more about ggplot2 by going to [here](http://docs.ggplot2.org/current/ggplot.html). Creating a plot with ggplot2 will allow you to create publication quality plots with just a few lines of code by adding layers.
+
+## Text
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Equations
+
+In-line equations are those that are included within a line of text like this $y=mx^2+b$
+
+```{r}
+n = 5
+k = 2
+```
+
+Display equations are intended to stand out from the rest of the text, in this template display equations come in two forms: referenced and non-referenced.  If you want to reference an equation in the text such as Equation \@ref(eq:binom) below, use the `\begin{equation}` environment as shown below.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  (\#eq:binom)
+\end{equation} 
+
+If you do not want to reference an equation you can surround encase the equation with `$$` to define the begin and end of math-mode. 
+
+```{r, fig.cap='A simple regression model plot'}
+N <- 30
+Y <- rnorm(n = N, sd = 1, mean = 0)
+X <- rnorm(n = N, sd = 1, mean = 0)
+plot(x = sort(X),
+     y = sort(Y), 
+     pch = 16,
+     col = 'red',
+     cex = 1.5,
+     las = 1)
+```
+
+
+```{r, results='asis'}
+model  <- lm(Y~X)
+xmodel <- xtable(summary(model), 
+                 caption = 'Summary of Model')
+print(xmodel, comment = F,
+      include.rownames = F,
+      caption.placement = 'top')
+```
+
+$$
+\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}
+$$
+
+## Code Chunks
+
+R gives you the ability to show the code that that was used for any plot, table, or function. Code chunk are designated from the surrounding text as shown below 
+
+
+Let's use the code chunk for building plots above as an example of what you would see in a code chunk.
+
+```{r, eval=FALSE}
+plot(mtcars$mpg,mtcars$hp,
+     main="Scatterplot",
+     xlab="Miles per Gallon", ylab="Horse Power", col="blue")
+```
+
+## Chunk Options
+
+Code chunks have many options. You might choose to display a code chunk, like above. To do that you would add **eval=FALSE**. It would look like this **```{r, eval=FALSE}**. For the purpose of displaying a plot you would add **echo=FALSE** in which case the code chunk would not be displayed at all. For a function, adding **echo=FALSE** would print only the answer to the function. For the function **2 + 2**, it would look like this:
+
+```{r,echo=FALSE}
+2+2
+```
+
+For a complete list of code chunk options, visit [this page](http://rmarkdown.rstudio.com/authoring_rcodechunks.html).
+
+## Headings
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Images
+
+Markdown provides a means to include images such as images about AFIT
+
+## Quotes
+
+> This is a quote in markdown
+
+\begin{quote}
+This is a quote in \LaTeX
+\end{quote}
+
+Can be inserted in regular R markdown blocks.
+
+```{r, fig.cap='A first plot'}
+plot(rnorm(100), col = 2, pch = 16, las = 1)
+```
+
+# Literature Review
+
+This is the second chapter of your thesis.
+
+## Citing published journal articles
+
+The RefManageR and knitcitations packages provide functions to create citations from various sources.  __Note: Some of these functions require an internet connection__
+
+- Digital Object Identifiers for published articles
+- International Standard Book Numbers for published books
+- Or doi associated with them.  The knitcitations `r citet(knitcitations)`, `r citep(knitcitations)` package allows us to easily cite papers by simply providing the doi.   
+
+## Citing published books with an ISBN
+
+`r citet(pressure)` states that pressure cookers are great! 
+
+# Methodology
+
+This is the third chapter of your thesis.
+
+# Analysis And Results
+
+This is the fourth chapter of your thesis
+
+# Conclusion
+
+This is the final chapter of your thesis.
+
+```{r}
+knitcitations::bibliography()
+```
+
