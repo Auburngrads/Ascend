@@ -1,0 +1,73 @@
+\documentclass{article}
+% package calls go here
+% or else make template mad
+\usepackage{pdfrender,xcolor}
+\pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
+\usepackage[linktocpage=true]{hyperref}
+\hypersetup{%
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black},
+    filecolor={blue!80!black},
+    urlbordercolor={blue!80!black},
+    pdfborderstyle={/S/U/W 1}
+}
+\usepackage[
+top=1.25in,
+bottom=1.3in,
+left=1in,
+right=1in]{geometry}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.jpg, .pdf, .png}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{calc}
+\newcommand{\tex}[1]{#1} % For symbol rendering
+\usepackage[scaled=1.1]{helvet}
+\newenvironment{myfont}{\fontfamily{phv}\selectfont}{\par}
+\usepackage[font={bf,normal},labelsep=period,labelfont=bf]{caption}
+\usepackage{amsmath,amssymb}
+\usepackage{textcomp}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+\usepackage{natbib}
+$if(date)$
+\date{$date$}
+$endif$
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set up page headers and footers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \fancyhfoffset[L]{-5pt}
+\usepackage{fancyhdr}
+\fancypagestyle{fancy}{%
+  \fancyhf{} % clear all header and footer fields
+  \fancyhead[L]{\setlength{\unitlength}{1in}\begin{picture}(0,0)\put(-0.75,-0.15){\includegraphics[width=$if(header_logo.width)$$header_logo.width$$else$0.6in$endif$,height=$if(header_logo.height)$$header_logo.height$$else$0.6in$endif$]{$if(header_logo.path)$$header_logo.path$$else$images/ascend.png$endif$}}\end{picture}} % 
+  \fancyfoot[L]{\setlength{\unitlength}{1in}\begin{picture}(0,0)\put(-1,-0.75){\includegraphics[width=8.5in,height=1in]{images/sow_footer.png}}\end{picture}} % 
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{fancy}
+\begin{document}\thispagestyle{fancy}
+\makeatletter
+\def\footrule{{\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi
+    \vskip-\footruleskip\vskip-\footrulewidth
+    \leavevmode\rlap{\hspace*{-2in}\rule{2\paperwidth}{\footrulewidth}}
+    \vskip\footruleskip}}
+\makeatother
+$body$
+\end{document}
