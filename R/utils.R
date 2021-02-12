@@ -63,7 +63,7 @@ template_pandoc <- function(metadata, template, output, verbose = FALSE) {
 
 #' Inherits properties from an existing pdf document
 #' @description Calls rmarkdown::pdf_document and marks the return value as inheriting pdf_document
-#' @importFrom rmarkdown pdf_document
+#' @importFrom bookdown pdf_document2
 #' @param ... arguments sent to \code{rmarkdown::pdf_document}
 inherit_pdf_document2 <- function(...) {
   fmt <- bookdown::pdf_document2(...)
@@ -79,6 +79,9 @@ inherit_pdf_document2 <- function(...) {
 #' @param format Named format folder
 #' @param template Named template folder
 #' @param csl Named style file for a given \code{template} 
+#' 
+#' @importFrom rmarkdown pandoc_path_arg
+#' 
 #' @export
 pdf_document_format <- function(..., format, template, csl = NULL) {
 
