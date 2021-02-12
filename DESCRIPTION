@@ -1,7 +1,6 @@
 Package: Ascend
 Type: Package
-Title: Contains Document Templates and Functions for Use 
-       at Ascend Innovations
+Title: Document Templates and Functions for Use at Ascend Innovations
 Version: 2021.01.12
 Date: 2021-01-12
 Author: Jason Freels
@@ -12,8 +11,17 @@ Imports: Rcpp (>= 1.0.5),
          reticulate,
          rmarkdown,
          tinytex,
-         knitr
+         knitr,
+         XML,
+         RCurl,
+         knitcitations,
+         RefManageR,
+         yaml,
+         bookdown,
+         utils
 LinkingTo: Rcpp
 RoxygenNote: 7.1.1
 Encoding: UTF-8
-SystemRequirements: TinyTex
+SystemRequirements: TinyTex,
+                    Python,
+                    Pandoc
