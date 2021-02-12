@@ -55,6 +55,3 @@ rmarkdown::draft("my_whitepaper.Rmd", template = "whitepaper", package = "Ascend
 }
 
 }
-\seealso{
-\code{\link{style_guide}}
-}
