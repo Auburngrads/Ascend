@@ -55,6 +55,3 @@ rmarkdown::draft("my_sow.Rmd", template = "sow", package = "Ascend")
 }
 
 }
-\seealso{
-\code{\link{style_guide}}
-}
