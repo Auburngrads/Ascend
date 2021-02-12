@@ -26,8 +26,6 @@
 #' rmarkdown::draft("my_sow.Rmd", template = "sow", package = "Ascend")
 #' }
 #'
-#' @seealso \code{\link{style_guide}}
-#' 
 #' @export
 sow <- function(...,
                         keep_tex = FALSE,
