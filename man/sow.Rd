@@ -13,7 +13,7 @@ sow(
   md_extensions = c("-autolink_bare_uris"),
   fig_caption = TRUE,
   toc = TRUE,
-  template = "templateb.tex",
+  template = "sow_template.tex",
   format = "sow",
   highlight = "default",
   xtab_caption_placement = "top",
