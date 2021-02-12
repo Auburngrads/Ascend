@@ -2,9 +2,8 @@
 % Please edit documentation in R/Ascend-package.R
 \docType{package}
 \name{Ascend-package}
-\alias{Ascend}
 \alias{Ascend-package}
 \title{Ascend: Document Templates and Functions for Use at Ascend Innovations}
 \description{
-This thing does some really cool shit.
+This is some shit
 }
