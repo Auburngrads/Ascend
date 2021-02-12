@@ -4,6 +4,7 @@
 #' @importFrom Rcpp evalCpp
 #' @importFrom stringr str_c
 #' @import knitr 
+#' @import xtable
 #' @docType package
 #' @description This is some shit
 #' @name Ascend-package
