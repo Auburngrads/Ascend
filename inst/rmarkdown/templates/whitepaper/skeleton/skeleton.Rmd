@@ -1,18 +1,17 @@
 ---
-title:        
-  full: "Enabling Patient Prioritization in the Montgomery County Emergency Room Overdose Notification (MC-ERON) System"
-  short: "PHDMC Internal Employee Satisfaction Survey Report Results"
+title: "Enabling Patient Prioritization in the Montgomery County Emergency Room Overdose Notification (MC-ERON) System"
 abstract:     >
           This is where you put the abstract. Note chevron symbol above, it tells Pandoc 
           that this YAML entry spans multiple lines
-keywords:     "awesome, ascend, amazing, other a-words"
-date:       "`r format(Sys.Date(), '%B %Y')`"
-cite_style: ""
-cite_shape: ""
+date:       "`r format(Sys.Date(), '%d %B %Y')`"
+cite_style: "numbers"
+cite_shape: "square"
 num_cite:   yes
+draft: false
 output: 
   Ascend::whitepaper:
     highlight: tango
+    keep_tex: false
     includes:
       in_header:    scripts/tex/in_header.tex
       before_body:  scripts/tex/before_body.tex
@@ -34,7 +33,7 @@ cite_options(citation_format = 'pandoc')
 library(reticulate)
 ```
 
-# Introduction
+\chapter{Introduction}
 
 ## Welcome to the Ascend whitepaper template!
 
@@ -225,9 +224,9 @@ Can be inserted in regular R markdown blocks.
 plot(rnorm(100), col = 2, pch = 16, las = 1)
 ```
 
-# Literature Review
+\chapter{Literature Review}
 
-This is the second chapter of your thesis.
+This is the second chapter.
 
 ## Citing published journal articles
 
@@ -241,14 +240,14 @@ The RefManageR and knitcitations packages provide functions to create citations 
 
 `r citet(pressure)` states that pressure cookers are great! 
 
-# Methodology
+\chapter{Methodology}
 
-This is the third chapter of your thesis.
+This is the third chapter.
 
-# Analysis And Results
+\chapter{Analysis And Results}
 
-This is the fourth chapter of your thesis
+This is the fourth chapter.
 
-# Conclusion
+\chapter{Conclusion}
 
-This is the final chapter of your thesis.
+This is the final chapter.
