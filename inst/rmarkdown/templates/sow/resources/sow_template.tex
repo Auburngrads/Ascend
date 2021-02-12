@@ -27,6 +27,7 @@ right=1in]{geometry}
 \usepackage{csquotes}
 \usepackage{float}
 \usepackage{calc}
+\usepackage(titlesec}
 \newcommand{\tex}[1]{#1} % For symbol rendering
 \usepackage[scaled=1.1]{helvet}
 \newenvironment{myfont}{\fontfamily{phv}\selectfont}{\par}
@@ -69,5 +70,20 @@ $endif$
     \leavevmode\rlap{\hspace*{-2in}\rule{2\paperwidth}{\footrulewidth}}
     \vskip\footruleskip}}
 \makeatother
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \position \reset@font
+        {\Huge \scshape  \thechapter }
+        \par\nobreak
+        \vspace*{10\p@}%
+        \interlinepenalty\@M
+        \par\nobreak
+        \vspace*{2\p@}%
+        {\Huge \bfseries #1\par\nobreak}
+        \par\nobreak
+        \vspace*{2\p@}%
+    \vskip 40\p@
+    \vskip 100\p@
+  }}
 $body$
 \end{document}
