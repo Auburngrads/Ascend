@@ -1,0 +1,60 @@
+---
+title: "Ascend"
+output: github_document
+keep_md: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- badges: start -->
+ [![Travis build status](https://travis-ci.com/Auburngrads/Ascend.svg?branch=main)](https://travis-ci.com/Auburngrads/Ascend)
+ [![CRAN status](https://www.r-pkg.org/badges/version/Ascend)](https://CRAN.R-project.org/package=Ascend)
+ [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+Before trying to knit the document we need to ensure that you have all of the necessary tools installed. 
+
+# Installing Tex/LaTeX
+
+The first required tool is a `TeX` distribution.  The `Ascend` package was built using `tinytex`, but there's no reason to assume that more traditional TeX distributions would not also work, i.e.  
+
+- Windows: [MiKTeX](https://miktex.org/howto/install-miktex)
+- Mac: [MacTeX](https://www.tug.org/mactex/)
+- Linux: [TeX Live](https://tug.org/texlive/)
+
+If `tinytex` is the chosen TeX distribution the `tinytex` package will be install as a dependency to the `Ascend` package.  However, the TinyTeX utility will also need to be installed using
+
+```
+tinytex::install_tinytex()
+```
+
+### Installing Perl
+
+The next required tool is Perl - particularly if your running Windows.  You may already have Perl installed, in which case reinstalling is not necessary. To check if Perl has already been installed, run the following code in the R console. 
+
+```{r, eval=FALSE}
+Sys.which('perl')
+```
+
+If this code returns a path to perl.exe (i.e. `'C:\\STRAWB~1\\perl\\bin\\perl.exe'`) - your good to go. If this returns nothing (i.e. `""`) it is likely that Perl is not installed.  Before installing however let's check your `C:` drive (or wherever your applications are stored).  Look for a directory named `Perl`, `ActivePerl`, or `Strawberry`.  If you see one of these perl is installed but not correctly configured (we'll get to that).  If you don't see any of these directories go [here](http://strawberryperl.com/) to install Strawberry Perl for Windows or [here](https://www.activestate.com/activeperl) to install ActiveState Perl for Mac or Linux.
+
+### Installing Pandoc
+
+Finally, we need to install Pandoc.  Once again check to see if Pandoc has already been installed by running the following code in the R console.
+
+```{r, eval=FALSE}
+Sys.which('pandoc')
+```
+
+If this returns a path to pandoc.exe - you're good.  If not, go [here](http://www.pandoc.org/installing.html) to install Pandoc for your OS.
+
+## Let's test it out
+
+OK, so now let's try to knit this document.  You may get one or more errors stating that a required \LaTeX package is not installed. To fix this, just open your package manager and install the package(s) listed.  __NOTE: You may need to use the admin version of the package manager (I've found this to be true for MiKTeX on Windows).__  To see which latex packages are called by this template run the code below to open the template file.
+
+```{r, eval=FALSE, echo=TRUE}
+library(Ascend)
+browseURL(.afit_thesis_template) 
+```
