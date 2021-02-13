@@ -25,9 +25,9 @@ library(xtable)
 source('scripts/R/setup.R')
 
 BIB <- ReadBib('references/my_bib.bib')
-knitcitations <- BIB[title = 'knitcitations']
-refmanager    <- BIB[title = 'RefManageR']
-pressure      <- BIB[key = 'randolph2016']
+knitcitations <- BIB[key = 'skolnick_opioid_2018']
+refmanager    <- BIB[key = 'caudarella_non-fatal_2016']
+pressure      <- BIB[key = 'krawczyk_predictors_2020']
 cite_options(citation_format = 'pandoc')
 
 library(reticulate)
