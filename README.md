@@ -11,6 +11,34 @@ status](https://www.r-pkg.org/badges/version/Ascend)](https://CRAN.R-project.org
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
+# Installation
+
+As this package has not yet been published, you can install the latest
+development version from GitHub using the instructions below.
+
+## External utilities
+
+Depending on your OS, you may need a suite of external utilities to
+compile the package on your machine
+
+-   Windows: `RTools` or `RBuildtools`
+-   Mac: `XCode`
+
+## Install Ascend
+
+Once the required external utilities have been installed and configured
+you can install the `Ascend` package using the code shown below
+
+``` r
+if (packageVersion("devtools") < 1.6) {
+  
+    install.packages("devtools")
+  
+}
+
+devtools::install_github("Auburngrads/Ascend")
+```
+
 Before trying to knit the document we need to ensure that you have all
 of the necessary tools installed.
 
