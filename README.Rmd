@@ -56,6 +56,8 @@ If `tinytex` is the chosen TeX distribution the `tinytex` package will be instal
 tinytex::install_tinytex()
 ```
 
+If you get an error referencing an application called `latexmk.exe`, read the error message and follow the path to find `latexmk.exe` and delete it.  Try knitting the document again. 
+
 ### Installing Perl
 
 The next required tool is Perl - particularly if your running Windows.  You may already have Perl installed, in which case reinstalling is not necessary. To check if Perl has already been installed, run the following code in the R console. 
