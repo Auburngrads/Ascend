@@ -25,6 +25,7 @@
 \usepackage[pdftex]{graphicx}
 \DeclareGraphicsExtensions{.jpg, .pdf, .png}
 \usepackage{color}
+\usepackage[table]{xcolor}
 \usepackage[$if(draft)$stamp=true$else$stamp=false$endif$]{draftwatermark}
 \usepackage{pdfrender,xcolor}
 \pdfrender{StrokeColor=black,TextRenderingMode=2,LineWidth=0.2pt}
@@ -40,6 +41,7 @@
 }
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\parskip}{10pt}
 \setlength{\parindent}{0pt}
 \usepackage[pdftex]{graphicx}
 \DeclareGraphicsExtensions{.jpg, .pdf, .png}
@@ -74,8 +76,6 @@ $endif$
 \usepackage{titletoc}
 \usepackage{ifpdf}
 \usepackage{lastpage}
-\providecommand{\tightlist}{%
-\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \let\proglang=\textsf
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 \definecolor{myblue}{rgb}{0,0,0.6}
@@ -126,12 +126,17 @@ $endif$
 {\bfseries\contentslabel{2.0em}}          % unnumbered format
 {\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
 [\vspace{4pt}]                            % below code
+%==================================================================
+%    		Toggle to put chapter titles on the same page or new page          
+%==================================================================
+$if(chapter_on_same_page)$
 \makeatletter
 \renewcommand\chapter{\thispagestyle{plain}%
 \global\@topnum\z@
 \@afterindentfalse
 \secdef\@chapter\@schapter}
-\makeatother 
+\makeatother
+$endif$
 %==================================================================
 %    		Customizing Section Titles               
 %==================================================================
