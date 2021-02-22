@@ -8,6 +8,7 @@ cite_style: "numbers"
 cite_shape: "square"
 num_cite:   yes
 draft: false
+chapter_on_same_page: false 
 output: 
   Ascend::whitepaper:
     highlight: tango
